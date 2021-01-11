@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeConsumer } from 'styled-components';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
         "Content-Type": "application/json"
       }
     })
+    .then(res => res.json())
+    .then(data => console.log(data))
   }
 
   return (
