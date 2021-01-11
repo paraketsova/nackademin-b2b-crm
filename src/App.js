@@ -6,8 +6,9 @@ function App() {
 
   function handleOnSubmit(e) {
     e.preventDefault()
-    console.log("Form submitted")
-    console.log(emailInputRef.current.value)
+    console.log("Form submitted");
+    const email= emailInputRef.current.value;
+    const password= passwordInputRef.current.value;
   }
 
   return (
