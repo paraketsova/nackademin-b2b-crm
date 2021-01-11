@@ -6,11 +6,11 @@ function App() {
   const [passwordInput, setPasswordInput] = useState("")
 
   function handleEmailInput(e) {
-    console.log(e.target.value)
+    setEmailInput(e.target.value)
   }
 
   function handlePasswordInput(e) {
-    console.log(e.target.value)
+    setPasswordInput(e.target.value)
   }
 
 
