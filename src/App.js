@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 
 function App() {
 
-  const [emailInput, setEmailInput] = useState("")
-  const [passwordInput, setPasswordInput] = useState("")
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [formData, setFormData] = useState({
+    email:"",
+    password:""
+  });
 
   function handleOnChange(e) {
     console.log(e.target.name, e.target.value);
-    if (e.target.name === "email") {
-      setEmailInput(e.target.value)
-    }
-    if (e.target.name === "password") {
-      setPasswordInput(e.target.value)
-    }
+    setFormData({...formData, [e.target.name]: e.target.value}) //add new attribute to object formData
   }
 
   return (
