@@ -5,22 +5,17 @@ function App() {
   const [emailInput, setEmailInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
 
-  function handleEmailInput(e) {
-    setEmailInput(e.target.value)
+  function handleOnChange(e) {
+    console.log(e.target.name, e.target.value);
   }
-
-  function handlePasswordInput(e) {
-    setPasswordInput(e.target.value)
-  }
-
 
   return (
     <div>
       <form>
         <label>Email</label>
-        <input onChange={handleEmailInput} />
+        <input name="email" onChange={handleOnChange} />
         <label>Password</label>
-        <input onChange={handlePasswordInput} />
+        <input name="password" onChange={handleOnChange} />
         <button type="submit">Log in</button>
       </form>
     </div>
