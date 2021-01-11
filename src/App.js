@@ -5,22 +5,24 @@ function App() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [formData, setFormData] = useState({
-    email:"",
-    password:""
+    email: "webb19@willandskill.se",
+    password: "javascriptoramverk"
   });
 
   function handleOnChange(e) {
-    console.log(e.target.name, e.target.value);
-    setFormData({...formData, [e.target.name]: e.target.value}) //add new attribute to object formData
+   const inputName = e.target.name;
+   const inputValue = e.target.value;
+   const newObj = {...formData, [inputName]: inputValue}; //add new attribute to obj -> newObj
+   setFormData(newObj);
   }
 
   return (
     <div>
       <form>
         <label>Email</label>
-        <input name="email" onChange={handleOnChange} />
+        <input name="email" value={formData.email} onChange={handleOnChange} />
         <label>Password</label>
-        <input name="password" onChange={handleOnChange} />
+        <input name="password" value={formData.password} onChange={handleOnChange} />
         <button type="submit">Log in</button>
       </form>
     </div>
