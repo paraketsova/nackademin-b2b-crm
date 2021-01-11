@@ -7,6 +7,12 @@ function App() {
 
   function handleOnChange(e) {
     console.log(e.target.name, e.target.value);
+    if (e.target.name === "email") {
+      setEmailInput(e.target.value)
+    }
+    if (e.target.name === "password") {
+      setPasswordInput(e.target.value)
+    }
   }
 
   return (
