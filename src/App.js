@@ -30,7 +30,11 @@ function App() {
       }
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      console.log(data.token) //get data token by click at Log In button
+      localStorage.setItem("WEBB20", data.token)
+    })
   }
 
   function getMe() {
