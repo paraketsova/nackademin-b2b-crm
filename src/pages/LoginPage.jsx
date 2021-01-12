@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function LoginPage() {
 
@@ -6,6 +7,8 @@ export default function LoginPage() {
     email: "webb19@willandskill.se",
     password: "javascriptoramverk"
   });
+  const history = useHistory();
+  console.log(history);
 
   
   function handleOnSubmit(e) {
@@ -27,6 +30,7 @@ export default function LoginPage() {
       console.log(data)
       console.log(data.token) //get data token by click at Log In button
       localStorage.setItem("WEBB20", data.token)
+      history.push('/customer-list')
     })
   }
 
