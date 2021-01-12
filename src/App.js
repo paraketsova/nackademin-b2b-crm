@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Switch, Route} from 'react-router-dom';
+import LoginPage from './pages/LoginPage'
 
 function App() {
   const [customerList, setCustomerList] = useState([]);
@@ -34,7 +35,7 @@ function App() {
     <div>
       <Switch>
         <Route path="/login">
-          
+          <LoginPage />
         </Route>
       </Switch>
       
