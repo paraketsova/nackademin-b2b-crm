@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function App() {
   const [customerList, setCustomerList] = useState([]);
   const [formData, setFormData] = useState({
-    email: "Mariia.Paraketsova@yh.nackademin.se",
+    email: "webb19@willandskill.se",
     password: "javascriptoramverk"
   });
 
