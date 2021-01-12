@@ -6,7 +6,7 @@ function App() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [formData, setFormData] = useState({
-    email: "webb19@willandskill.se",
+    email: "Mariia.Paraketsova@yh.nackademin.se",
     password: "javascriptoramverk"
   });
 
