@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { ThemeConsumer } from 'styled-components';
 
 function App() {
-
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [formData, setFormData] = useState({
@@ -35,6 +33,10 @@ function App() {
     .then(data => console.log(data))
   }
 
+  function getMe() {
+    console.log("Get Me!")
+  }
+
   return (
     <div>
       <form onSubmit={handleOnSubmit}>
@@ -44,6 +46,8 @@ function App() {
         <input name="password" value={formData.password} onChange={handleOnChange} />
         <button type="submit">Log in</button>
       </form>
+      <hr />
+      <button onClick={getMe}>Get Me</button>
     </div>
   );
 }
