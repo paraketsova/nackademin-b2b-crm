@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [emailInput, setEmailInput] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
+  const [customerList, setCustomerList] = useState([]);
   const [formData, setFormData] = useState({
     email: "Mariia.Paraketsova@yh.nackademin.se",
     password: "javascriptoramverk"
@@ -60,7 +59,7 @@ function App() {
       }
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setCustomerList(data.results))
   }
 
   return (
@@ -75,6 +74,10 @@ function App() {
       <hr />
       <button onClick={getMe}>Get Me</button>
       <button onClick={getCustomerList}>Get Customer List</button>
+
+      {customerList.map((item, index) => {
+        return <p key={index}>{item.name}</p>
+      })}
 
     </div>
   );
