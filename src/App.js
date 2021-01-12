@@ -38,7 +38,16 @@ function App() {
   }
 
   function getMe() {
-    console.log("Get Me!")
+    const url = "https://frebi.willandskill.eu/api/v1/me/"
+    const token = localStorage.getItem("WEBB20")
+    fetch(url, {
+      headers:{
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
   }
 
   return (
