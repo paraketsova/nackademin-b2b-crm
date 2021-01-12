@@ -38,8 +38,21 @@ function App() {
   }
 
   function getMe() {
-    const url = "https://frebi.willandskill.eu/api/v1/me/"
-    const token = localStorage.getItem("WEBB20")
+    const url = "https://frebi.willandskill.eu/api/v1/me/";
+    const token = localStorage.getItem("WEBB20");
+    fetch(url, {
+      headers:{
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+
+  function getCustomerList() {
+    const url = "https://frebi.willandskill.eu/api/v1/customers/";
+    const token = localStorage.getItem("WEBB20");
     fetch(url, {
       headers:{
         "Content-Type": "application/json",
@@ -61,6 +74,8 @@ function App() {
       </form>
       <hr />
       <button onClick={getMe}>Get Me</button>
+      <button onClick={getCustomerList}>Get Customer List</button>
+
     </div>
   );
 }
