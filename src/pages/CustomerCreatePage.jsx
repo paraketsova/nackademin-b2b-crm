@@ -23,10 +23,28 @@ export default function CustomerCreatePage() {
     )
   }
 
+  function handleOnSubmit(e) {
+    e.preventDefault()
+    const url = "https://frebi.willandskill.eu/api/v1/customers/";
+    const token = localStorage.getItem("WEBB20");
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers:{
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  }
+
   return (
     <div>
       <h2>Create Customer</h2>
-      <form>
+      <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}
         {renderInput("organisationNr", "Organisation Number")}
         {renderInput("vatNr", "Vat Number")}
@@ -35,8 +53,9 @@ export default function CustomerCreatePage() {
         {renderInput("website", "Website", "url")}
         {renderInput("email", "Customer Email", "email")}
         {renderInput("phoneNumber", "Phone Number", "tel")}
+        <button type="submit">Create Customer</button>
       </form>
-      {JSON.stringify(formData)}
+      <code>{JSON.stringify(formData)}</code>
     </div>
   )
 }
