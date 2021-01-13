@@ -29,13 +29,36 @@ export default function CustomerDetailPage(props) {
       ? (
           <div>
             <h3>{customerItem.name}</h3>
-            <p>{customerItem.organisationNr}</p>
-            <p>{customerItem.vatNr}</p>
-            <p>{customerItem.reference}</p>
-            <p>{customerItem.paymentsTerm}</p>
-            <p>{customerItem.website}</p>
-            <p>{customerItem.email}</p>
-            <p>{customerItem.phoneNumber}</p>
+            <table>
+              <tr>
+                <td>Organisatioin Number</td>
+                <td>{customerItem.organisationNr}</td>
+              </tr>
+              <tr>
+                <td>VAT Number</td>
+                <td>{customerItem.vatNr}</td>
+              </tr>
+              <tr>
+                <td>Reference</td>
+                <td>{customerItem.reference}</td>
+              </tr>
+              <tr>
+                <td>Payments Term</td>
+                <td>{customerItem.paymentsTerm}</td>
+              </tr>
+              <tr>
+                <td>Website</td>
+                <td>{customerItem.website}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{customerItem.email}</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>{customerItem.phoneNumber}</td>
+              </tr>
+            </table>
           </div>
           
       )
