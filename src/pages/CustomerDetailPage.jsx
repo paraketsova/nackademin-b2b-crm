@@ -5,7 +5,7 @@ export default function CustomerDetailPage(props) {
   const [customerIten, setCustomerItem] = useState();
 
   function getCustomerItem() {
-    const url = "https://frebi.willandskill.eu/api/v1/customers/${customerID}";
+    const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
     const token = localStorage.getItem("WEBB20");
     fetch(url, {
       headers:{
