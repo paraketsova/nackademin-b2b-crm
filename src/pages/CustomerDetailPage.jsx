@@ -23,12 +23,11 @@ export default function CustomerDetailPage(props) {
 
   return (
     <div>
-      <h2>Customer Detail Page</h2>
       {console.log(customerItem)}
       {customerItem
       ? (
           <div>
-            <h3>{customerItem.name}</h3>
+            <h2>{customerItem.name}</h2>
             <table>
               <tr>
                 <td>Organisatioin Number</td>
@@ -48,11 +47,19 @@ export default function CustomerDetailPage(props) {
               </tr>
               <tr>
                 <td>Website</td>
-                <td>{customerItem.website}</td>
+                <td>
+                  <a href={customerItem.website} target="_blank">
+                    {customerItem.website}
+                  </a> 
+                </td>
               </tr>
               <tr>
                 <td>Email</td>
-                <td>{customerItem.email}</td>
+                <td>
+                  <a href={`mailto:${customerItem.email}`}>
+                  {customerItem.email}
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td>Phone Number</td>
