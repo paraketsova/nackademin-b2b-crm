@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function CustomerCreatePage() {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({});
+  const history = useHistory();
 
   function handleOnChange(e) {
     const name = e.target.name
@@ -35,9 +37,10 @@ export default function CustomerCreatePage() {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
       }
-    }).then(res => res.json())
-    .then(data => {
-      console.log(data)
+    })
+    .then( res => res.json())
+    .then( data => {
+      history.push('/customers')
     })
   }
 
