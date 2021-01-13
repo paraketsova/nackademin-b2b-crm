@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Switch, Route} from 'react-router-dom';
-import LoginPage from './pages/LoginPage'
-import CustomerListPage from './pages/CustomerListPage'
+import LoginPage from './pages/LoginPage';
+import CustomerListPage from './pages/CustomerListPage';
 
 
 function App() {
