@@ -36,6 +36,7 @@ export default function CustomerCreatePage() {
         {renderInput("email", "Customer Email", "email")}
         {renderInput("phoneNumber", "Phone Number", "tel")}
       </form>
+      {JSON.stringify(formData)}
     </div>
   )
 }
