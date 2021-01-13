@@ -27,7 +27,12 @@ export default function CustomerDetailPage(props) {
       {console.log(customerItem)}
       {customerItem
       ? (
-          <span>Data inladdat</span>
+          <div>
+            <h3>{customerItem.name}</h3>
+            <p>{customerItem.email}</p>
+            <p>{customerItem.website}</p>
+          </div>
+          
       )
       :
       (
