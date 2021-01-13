@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Switch, Route} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import CustomerListPage from './pages/CustomerListPage';
+import CustomerDetailPage from './pages/CustomerDetailPage';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/customer-list">
           <CustomerListPage />
+        </Route>
+        <Route path="/customers/:id" component={CustomerDetailPage}>
+
         </Route>
       </Switch>
       
