@@ -27,13 +27,16 @@ function App() {
         <Route path="/login">
           <LoginPage />
         </Route>
+
         <Route path="/customers/create">
           <CustomerCreatePage />
         </Route>
+
+        <Route path="/customers/:id" component={CustomerDetailPage} />
+
         <Route path="/customers">
           <CustomerListPage />
         </Route>
-        <Route path="/customers/:id" component={CustomerDetailPage} />
       </Switch>
       
       <hr />
