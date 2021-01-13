@@ -27,7 +27,7 @@ export default function CustomerCreatePage() {
     <div>
       <h2>Create Customer</h2>
       <form>
-        {renderInput("name", "Customer Name")}{renderInput("email", "Customer Email", "email")}
+        {renderInput("name", "Customer Name")}
         {renderInput("organisationNr", "Organisation Number")}
         {renderInput("vatNr", "Vat Number")}
         {renderInput("reference", "Reference")}
