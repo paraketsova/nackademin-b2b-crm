@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Link} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
@@ -7,7 +7,7 @@ import CustomerCreatePage from './pages/CustomerCreatePage';
 
 
 function App() {
-  
+
   function getMe() {
     const url = "https://frebi.willandskill.eu/api/v1/me/";
     const token = localStorage.getItem("WEBB20");
@@ -23,6 +23,16 @@ function App() {
 
   return (
     <div>
+
+      <ul>
+        <li>
+          <Link to="/customers"> Customers</Link>
+        </li>
+        <li>
+          <Link to="/customers/create">Create Customers</Link>
+        </li>
+      </ul>
+
       <Switch>
         <Route path="/login">
           <LoginPage />
