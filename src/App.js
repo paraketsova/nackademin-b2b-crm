@@ -27,10 +27,10 @@ function App() {
         <Route path="/login">
           <LoginPage />
         </Route>
-        <Route path="/customer/create">
+        <Route path="/customers/create">
           <CustomerCreatePage />
         </Route>
-        <Route path="/customer-list">
+        <Route path="/customers">
           <CustomerListPage />
         </Route>
         <Route path="/customers/:id" component={CustomerDetailPage} />
