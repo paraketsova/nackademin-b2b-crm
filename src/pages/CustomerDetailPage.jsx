@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
   const [customerItem, setCustomerItem] = useState();
+  const history = useHistory();
 
   function getCustomerItem() {
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
@@ -27,6 +29,7 @@ export default function CustomerDetailPage(props) {
         "Authorization": `Bearer ${token}`
       }
     })
+    .then(() => history.push('/customers'))
   }
 
   useEffect( () => {
