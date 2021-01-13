@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
-  const [customerIten, setCustomerItem] = useState();
+  const [customerItem, setCustomerItem] = useState();
 
   function getCustomerItem() {
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
@@ -14,7 +14,7 @@ export default function CustomerDetailPage(props) {
       }
     })
     .then(res => res.json())
-    .then(data => setCustomerItem(data.results))
+    .then(data => setCustomerItem(data))
   }
 
   useEffect( () => {
@@ -24,6 +24,16 @@ export default function CustomerDetailPage(props) {
   return (
     <div>
       <h2>Customer Detail Page</h2>
+      {console.log(customerItem)}
+      {customerItem
+      ? (
+          <span>Data inladdat</span>
+      )
+      :
+      (
+        <span>Laddar data...</span>
+      )
+      }
     </div>
   )
 }
