@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerCreatePage from './pages/CustomerCreatePage';
+import CustomerUpdatePage from './pages/CustomerUpdatePage';
 
 
 function App() {
@@ -42,7 +43,15 @@ function App() {
           <CustomerCreatePage />
         </Route>
 
-        <Route path="/customers/:id" component={CustomerDetailPage} />
+        <Route 
+          path="/customers/:id/edit"
+          component={CustomerUpdatePage} 
+          />
+
+        <Route 
+          path="/customers/:id" 
+          component={CustomerDetailPage} 
+        />
 
         <Route path="/customers">
           <CustomerListPage />

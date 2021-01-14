@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
-  const [customerItem, setCustomerItem] = useState();
+  const [customerItem, setCustomerItem] = useState(null);
   const history = useHistory();
 
   function getCustomerItem() {
