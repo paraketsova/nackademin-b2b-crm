@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-import CustomerListPage from './pages/CustomerListPage';
+import HomePage from './pages/HomePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
@@ -27,7 +27,7 @@ function App() {
 
       <ul>
         <li>
-          <Link to="/customers"> Customers</Link>
+          <Link to="/home"> Customers</Link>
         </li>
         <li>
           <Link to="/customers/create">Create Customers</Link>
@@ -53,8 +53,8 @@ function App() {
           component={CustomerDetailPage} 
         />
 
-        <Route path="/customers">
-          <CustomerListPage />
+        <Route path="/home">
+          <HomePage />
         </Route>
       </Switch>
       

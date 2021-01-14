@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
 
-export default function CustomerListPage() {
+export default function HomePage() {
 
   const [customerList, setCustomerList] = useState([]);
 
