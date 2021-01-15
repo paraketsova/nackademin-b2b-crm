@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
 import { useHistory } from 'react-router-dom';
 import UserDataDetail from '../components/UserDataDetail';
+import LogOut from '../components/LogOut';
    
 
 
@@ -28,23 +29,15 @@ export default function HomePage() {
     .then(data => setCustomerList(data.results))
   }
 
-  function logOut() {
-    localStorage.removeItem("WEBB20"); 
-    localStorage.removeItem("email"); 
-    localStorage.removeItem("firstName"); 
-    localStorage.removeItem("lastName"); 
-    history.push('/'); 
-  }
-
   return (
     <div>
         <UserDataDetail />
+        <LogOut />
       
       {customerList.map((item, index) => {
         return <CustomerListItem key={item.id} customerData={item} />
       })}
-      
-      <button onClick={logOut}>Log Out</button>
+
     </div>
   )
 }
