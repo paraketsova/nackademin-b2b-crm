@@ -8,30 +8,50 @@ export default function LoginPage() {
     password: "javascriptoramverk"
   });
   const history = useHistory();
-  console.log(history);
-
-  
+ 
   function handleOnSubmit(e) {
-    e.preventDefault()
-    const url = "https://frebi.willandskill.eu/api-token-auth/";
+    e.preventDefault();
+
     const payload = {
       email: formData.email,
       password: formData.password
-    }
-    fetch(url, {
+    };
+
+    getToken(payload)
+      .then(() => getUserData()
+        .then(() => history.push('/')));
+  }
+
+  function getToken(payload) {
+    const url = "https://frebi.willandskill.eu/api-token-auth/";
+    return fetch(url, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
         "Content-Type": "application/json"
       }
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      console.log(data.token) //get data token by click at Log In button
-      localStorage.setItem("WEBB20", data.token)
-      history.push('/')
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem("WEBB20", data.token);
+      });
+  }
+
+  function getUserData() {
+    const url = "https://frebi.willandskill.eu/api/v1/me/";
+    const token = localStorage.getItem("WEBB20");
+    return fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
     })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("firstName", data.firstName);
+        localStorage.setItem("lastName", data.lastName);
+      });
   }
 
   function handleOnChange(e) {

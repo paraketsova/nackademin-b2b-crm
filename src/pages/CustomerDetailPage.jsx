@@ -34,6 +34,7 @@ export default function CustomerDetailPage(props) {
 
   useEffect( () => {
     getCustomerItem()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -64,7 +65,7 @@ export default function CustomerDetailPage(props) {
                 <tr>
                   <td>Website</td>
                   <td>
-                    <a href={customerItem.website} target="_blank">
+                    <a href={customerItem.website} target="_blank" rel="noreferrer">
                       {customerItem.website}
                     </a> 
                   </td>

@@ -23,6 +23,7 @@ export default function CustomerUpdatePage(props) {
 
   useEffect( () => {
     getCustomerItem()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleOnChange(e) {
