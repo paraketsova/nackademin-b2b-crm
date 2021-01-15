@@ -29,7 +29,6 @@ export default function HomePage() {
   }
 
   function logOut() {
-    console.log("blablabla");
     localStorage.removeItem("WEBB20"); 
     localStorage.removeItem("email"); 
     localStorage.removeItem("firstName"); 
