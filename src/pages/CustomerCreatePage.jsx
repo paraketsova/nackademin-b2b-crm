@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 
 export default function CustomerCreatePage() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState();
   const history = useHistory();
 
   function handleOnChange(e) {

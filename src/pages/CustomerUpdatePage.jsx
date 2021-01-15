@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Header from '../components/Header';
 
 
 export default function CustomerUpdatePage(props) {
@@ -65,6 +66,7 @@ export default function CustomerUpdatePage(props) {
 
   return (
     <div>
+      <Header />
       <h2>Update Customer</h2>
       <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}

@@ -7,6 +7,7 @@ const colors = {
 	paleCerulean: '#9FC3DD',
 	greenBlueCrayola: '#3F88C5',
 	carrotOrange: '#ED9B40',
+	jet: '333533'
 };
 
 export default colors;

@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
-import { useHistory } from 'react-router-dom';
-import UserDataDetail from '../components/UserDataDetail';
-import LogOut from '../components/LogOut';
+import { useHistory, Link } from 'react-router-dom';
+import Header from '../components/Header';
+import ButtonHome from '../components/ButtonHome';
+import ButtonCreate from '../components/ButtonCreate';
+
    
 
 
@@ -31,8 +33,19 @@ export default function HomePage() {
 
   return (
     <div>
-        <UserDataDetail />
-        <LogOut />
+      <Header />
+
+      <div>
+        <Link to="/">
+          <ButtonHome />
+        </Link>
+          
+        <Link to="/customers/create">
+          <ButtonCreate />
+        </Link>
+      </div>
+      
+        
       
       {customerList.map((item, index) => {
         return <CustomerListItem key={item.id} customerData={item} />
