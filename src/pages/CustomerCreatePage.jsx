@@ -40,7 +40,7 @@ export default function CustomerCreatePage() {
     })
     .then( res => res.json())
     .then( data => {
-      history.push('/home')
+      history.push(`/`)
     })
   }
 

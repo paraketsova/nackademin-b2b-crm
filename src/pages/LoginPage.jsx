@@ -30,7 +30,7 @@ export default function LoginPage() {
       console.log(data)
       console.log(data.token) //get data token by click at Log In button
       localStorage.setItem("WEBB20", data.token)
-      history.push('/customers')
+      history.push('/')
     })
   }
 

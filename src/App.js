@@ -5,11 +5,12 @@ import HomePage from './pages/HomePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
+import ConditionalHomePage from './components/ConditionalHomePage';
 
 
 function App() {
 
-  function getMe() {
+  function getMe() { //get my name and email
     const url = "https://frebi.willandskill.eu/api/v1/me/";
     const token = localStorage.getItem("WEBB20");
     fetch(url, {
@@ -27,7 +28,7 @@ function App() {
 
       <ul>
         <li>
-          <Link to="/home"> Customers</Link>
+          <Link to="/"> Customers</Link>
         </li>
         <li>
           <Link to="/customers/create">Create Customers</Link>
@@ -35,9 +36,11 @@ function App() {
       </ul>
 
       <Switch>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
+        <Route 
+          exact
+          path="/"
+          component={ConditionalHomePage} 
+        />
 
         <Route path="/customers/create">
           <CustomerCreatePage />
@@ -48,14 +51,12 @@ function App() {
           component={CustomerUpdatePage} 
           />
 
-        <Route 
+        <Route
+          exact
           path="/customers/:id" 
           component={CustomerDetailPage} 
         />
 
-        <Route path="/home">
-          <HomePage />
-        </Route>
       </Switch>
       
       <hr />
