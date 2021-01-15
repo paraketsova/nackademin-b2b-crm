@@ -1,12 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
 import { useHistory } from 'react-router-dom';
+const userFirstName = localStorage.getItem("firstName");
+const userLastName = localStorage.getItem("lastName");
+const userEmail = localStorage.getItem("email");
+   
 
 
 export default function HomePage() {
 
   const [customerList, setCustomerList] = useState([]);
   const history = useHistory();
+  const userFirstName = localStorage.getItem("firstName");
+  const userLastName = localStorage.getItem("lastName");
+  const userEmail = localStorage.getItem("email");
+
 
   useEffect(() => {
     getCustomerList()
@@ -25,17 +33,13 @@ export default function HomePage() {
     .then(data => setCustomerList(data.results))
   }
 
-  function getMe() { //get my name and email
-    const url = "https://frebi.willandskill.eu/api/v1/me/";
-    const token = localStorage.getItem("WEBB20");
-    fetch(url, {
-      headers:{
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      }
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
+  function getMe() { 
+    const userFirstName = localStorage.getItem("firstName");
+    const userLastName = localStorage.getItem("lastName");
+    const userEmail = localStorage.getItem("email");
+    console.log(userFirstName);
+    console.log(userLastName);
+    console.log(userEmail);
   }
 
   function logOut() {
@@ -49,9 +53,15 @@ export default function HomePage() {
 
   return (
     <div>
-     
-      <button onClick={getMe}>Get Me</button>
-    
+      
+        Hi, {userFirstName} {userLastName}!
+        <p>First Name: {userFirstName}</p>
+        <p>Last Name: {userLastName}</p> 
+        <p>Email: {userEmail}</p> 
+
+        <button onClick={getMe}>Get Me</button>
+
+      
       {customerList.map((item, index) => {
         return <CustomerListItem key={item.id} customerData={item} />
       })}

@@ -19,7 +19,8 @@ export default function LoginPage() {
 
     getToken(payload)
       .then(() => getUserData()
-        .then(() => history.push('/')));
+        .then(() => history.push('/'))
+      );
   }
 
   function getToken(payload) {
