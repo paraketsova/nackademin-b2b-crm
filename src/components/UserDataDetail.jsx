@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import UserDataDetailStyled from './UserDataDetailStyled';
+import LogOut from './LogOut';
+
 
 export default function UserDataDetail() {
   const userFirstName = localStorage.getItem("firstName");
@@ -6,8 +9,14 @@ export default function UserDataDetail() {
   const userEmail = localStorage.getItem("email");
 
   return (
-    <div>
-      {userFirstName} {userLastName} 👤 {userEmail}
+    <UserDataDetailStyled>
+      
+      <div>
+      👤 {userFirstName} {userLastName} 
+      <p> {userEmail} </p>
+      <LogOut />
     </div>
+    </UserDataDetailStyled>
+   
   )
 }
