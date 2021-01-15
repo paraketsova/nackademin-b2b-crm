@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
 import { useHistory } from 'react-router-dom';
-const userFirstName = localStorage.getItem("firstName");
-const userLastName = localStorage.getItem("lastName");
-const userEmail = localStorage.getItem("email");
+import UserDataDetail from '../components/UserDataDetail';
    
 
 
@@ -11,9 +9,6 @@ export default function HomePage() {
 
   const [customerList, setCustomerList] = useState([]);
   const history = useHistory();
-  const userFirstName = localStorage.getItem("firstName");
-  const userLastName = localStorage.getItem("lastName");
-  const userEmail = localStorage.getItem("email");
 
 
   useEffect(() => {
@@ -33,15 +28,6 @@ export default function HomePage() {
     .then(data => setCustomerList(data.results))
   }
 
-  function getMe() { 
-    const userFirstName = localStorage.getItem("firstName");
-    const userLastName = localStorage.getItem("lastName");
-    const userEmail = localStorage.getItem("email");
-    console.log(userFirstName);
-    console.log(userLastName);
-    console.log(userEmail);
-  }
-
   function logOut() {
     console.log("blablabla");
     localStorage.removeItem("WEBB20"); 
@@ -53,14 +39,7 @@ export default function HomePage() {
 
   return (
     <div>
-      
-        Hi, {userFirstName} {userLastName}!
-        <p>First Name: {userFirstName}</p>
-        <p>Last Name: {userLastName}</p> 
-        <p>Email: {userEmail}</p> 
-
-        <button onClick={getMe}>Get Me</button>
-
+        <UserDataDetail />
       
       {customerList.map((item, index) => {
         return <CustomerListItem key={item.id} customerData={item} />
