@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import Header from '../components/Header';
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState({});
@@ -46,6 +47,7 @@ export default function CustomerCreatePage() {
 
   return (
     <div>
+      <Header />
       <h2>Create Customer</h2>
       <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}
