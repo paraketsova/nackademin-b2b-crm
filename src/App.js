@@ -10,16 +10,6 @@ function App() {
 
   return (
     <div>
-
-      <ul>
-        <li>
-          <Link to="/">Home Page</Link>
-        </li>
-        <li>
-          <Link to="/customers/create">Create Customer</Link>
-        </li>
-      </ul>
-
       <Switch>
         <Route 
           exact

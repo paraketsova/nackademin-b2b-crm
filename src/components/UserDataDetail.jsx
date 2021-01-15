@@ -7,7 +7,7 @@ export default function UserDataDetail() {
 
   return (
     <div>
-      {userFirstName} {userLastName} |  {userEmail}
+      {userFirstName} {userLastName} 👤 {userEmail}
     </div>
   )
 }

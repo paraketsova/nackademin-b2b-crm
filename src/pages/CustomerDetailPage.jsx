@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ButtonHome from '../components/ButtonHome';
+import ButtonCreate from '../components/ButtonCreate';
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
@@ -42,6 +44,15 @@ export default function CustomerDetailPage(props) {
     
     <div>
       <Header />
+      <div>
+        <Link to="/">
+          <ButtonHome />
+        </Link>
+          
+        <Link to="/customers/create">
+          <ButtonCreate />
+        </Link>
+      </div>
       {console.log(customerItem)}
       {customerItem
       ? (

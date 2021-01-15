@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ButtonHome from '../components/ButtonHome';
+import ButtonCreate from '../components/ButtonCreate';
 
 
 export default function CustomerUpdatePage(props) {
@@ -67,6 +69,15 @@ export default function CustomerUpdatePage(props) {
   return (
     <div>
       <Header />
+      <div>
+        <Link to="/">
+          <ButtonHome />
+        </Link>
+          
+        <Link to="/customers/create">
+          <ButtonCreate />
+        </Link>
+      </div>
       <h2>Update Customer</h2>
       <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}
