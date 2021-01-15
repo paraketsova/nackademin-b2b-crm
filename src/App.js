@@ -28,7 +28,7 @@ function App() {
 
       <ul>
         <li>
-          <Link to="/"> Customers</Link>
+          <Link to="/"> Home Page</Link>
         </li>
         <li>
           <Link to="/customers/create">Create Customers</Link>
