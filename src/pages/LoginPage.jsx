@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import LoginFormStyled from '../components/LoginFormStyled';
-import HeaderStyled from '../components/HeaderStyled'
 import Logo from '../components/Logo';
 
 export default function LoginPage() {
@@ -67,12 +66,9 @@ export default function LoginPage() {
 
   return (
     <div>
-      <HeaderStyled>
-        <Logo>B2B<span>customer</span>service</Logo>
-      </HeaderStyled>
       <LoginFormStyled>
         <header>
-          LOGIN - SIGN UP
+          <Logo>B2B<span>customer</span>service</Logo>
         </header>
         <form onSubmit={handleOnSubmit}>
           <div>
@@ -81,7 +77,7 @@ export default function LoginPage() {
           <div>
             <input name="password" value={formData.password} onChange={handleOnChange} />
           </div>
-          <button type="submit">Log in</button>
+          <button type="submit">LOG IN</button>
         </form>
       </LoginFormStyled>
     </div>

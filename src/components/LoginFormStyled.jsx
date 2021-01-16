@@ -26,6 +26,7 @@ const LoginFormStyled = styled.div `
     display: block;
     padding: 1.5em;
     text-align: center;
+    color: ${colors.floralWhite};
   }
 
   div {
@@ -71,9 +72,10 @@ const LoginFormStyled = styled.div `
   button {
     outline: 0;
     font-size: 1em;
+    font-weight: 
     letter-spacing: 0.1em;
-    background-color: ${colors.carrotOrange};;
-    color: #fff;
+    background-color: ${colors.carrotOrange};
+    color: ${colors.floralWhite};
     border: none;
     border-radius: 3px;
     width: 200px;
