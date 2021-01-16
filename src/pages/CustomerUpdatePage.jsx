@@ -73,10 +73,6 @@ export default function CustomerUpdatePage(props) {
         <Link to="/">
           <ButtonHome />
         </Link>
-          
-        <Link to="/customers/create">
-          <ButtonCreate />
-        </Link>
       </div>
       <h2>Update Customer</h2>
       <form onSubmit={handleOnSubmit}>

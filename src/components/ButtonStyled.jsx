@@ -2,17 +2,16 @@ import styled from 'styled-components'
 import colors from '../Colors'
 
 const ButtonStyled = styled.button `
-    border-radius: 15px;
-    width: 5rem;
+    border-radius: 20px;
+    width: 6rem;
     height: 4rem;
     padding: 5px 10px;
     border: none;
     font-weight: 500;
-    background-color: ${colors.jet};
-    margin: 0.7rem;
+    background-color: ${colors.greenBlueCrayola};
     transition: .3s;
-    font-size: .9rem;
-    color: ${colors.earieBlack};
+    font-size: 0.9rem;
+    color: white;
     text-decoration: none;
     
     &:hover, &:focus {

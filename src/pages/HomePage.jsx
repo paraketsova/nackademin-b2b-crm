@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import CustomerListItem from '../components/CustomerListItem';
 import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
-import ButtonHome from '../components/ButtonHome';
 import ButtonCreate from '../components/ButtonCreate';
+import ListContainerStyled from '../components/ListContainerStyled';
+
 
    
 
@@ -19,7 +20,7 @@ export default function HomePage() {
   }, [])
 
   function getCustomerList() {
-    const url = "https://frebi.willandskill.eu/api/v1/customers/";
+    const url = "https://frebi.willandskill.eu/api/v1/customers";
     const token = localStorage.getItem("WEBB20");
     fetch(url, {
       headers:{
@@ -34,22 +35,20 @@ export default function HomePage() {
   return (
     <div>
       <Header />
+      <ListContainerStyled>
+        <section>
+          <Link to="/customers/create">
+            <ButtonCreate />
+          </Link>
+        </section>
 
-      <div>
-        <Link to="/">
-          <ButtonHome />
-        </Link>
-          
-        <Link to="/customers/create">
-          <ButtonCreate />
-        </Link>
-      </div>
-      
-        
-      
-      {customerList.map((item, index) => {
-        return <CustomerListItem key={item.id} customerData={item} />
-      })}
+        <div>
+          <h1>Customer List</h1>
+          {customerList.map((item, index) => {
+            return <CustomerListItem key={item.id} customerData={item} />
+          })}
+        </div>
+      </ListContainerStyled>
 
     </div>
   )

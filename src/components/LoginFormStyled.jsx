@@ -72,7 +72,7 @@ const LoginFormStyled = styled.div `
   button {
     outline: 0;
     font-size: 1em;
-    font-weight: 
+    font-weight: bold;
     letter-spacing: 0.1em;
     background-color: ${colors.carrotOrange};
     color: ${colors.floralWhite};
@@ -85,7 +85,7 @@ const LoginFormStyled = styled.div `
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
     transition: .3s;
-  vertical-align: middle;
+    vertical-align: middle;
 
   &:hover, &:focus {
     background-color: ${colors.carrotOrange};

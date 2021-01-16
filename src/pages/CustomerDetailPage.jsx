@@ -49,9 +49,6 @@ export default function CustomerDetailPage(props) {
           <ButtonHome />
         </Link>
           
-        <Link to="/customers/create">
-          <ButtonCreate />
-        </Link>
       </div>
       {console.log(customerItem)}
       {customerItem
