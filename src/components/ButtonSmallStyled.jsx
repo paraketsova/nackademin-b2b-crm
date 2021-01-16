@@ -5,7 +5,6 @@ const ButtonSmallStyled = styled.button `
   border-radius: 0.5rem;
   padding: 0.3rem 0.5rem;
   border: none;
-  font-weight: 300;
   color: ${colors.floralWhite};
   background-color: ${colors.greenBlueCrayola};
   margin: 0.3rem;

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ButtonHome from '../components/ButtonHome';
+import ListItemStyled from '../components/ListItemStyled';
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState();
@@ -48,19 +50,29 @@ export default function CustomerCreatePage() {
   return (
     <div>
       <Header />
-      <h2>Create Customer</h2>
-      <form onSubmit={handleOnSubmit}>
-        {renderInput("name", "Customer Name")}
-        {renderInput("organisationNr", "Organisation Number")}
-        {renderInput("vatNr", "Vat Number")}
-        {renderInput("reference", "Reference")}
-        {renderInput("paymentTerm", "Payment Term", "number")}
-        {renderInput("website", "Website", "url")}
-        {renderInput("email", "Customer Email", "email")}
-        {renderInput("phoneNumber", "Phone Number", "tel")}
-        <button type="submit">Create Customer</button>
-      </form>
-      <code>{JSON.stringify(formData)}</code>
+      <ListItemStyled>
+        <section>
+          <Link to="/">
+            <ButtonHome />
+          </Link>
+        </section>
+        <div>
+          <h1>Create Customer</h1>
+          <form onSubmit={handleOnSubmit}>
+            {renderInput("name", "Customer Name")}
+            {renderInput("organisationNr", "Organisation Number")}
+            {renderInput("vatNr", "Vat Number")}
+            {renderInput("reference", "Reference")}
+            {renderInput("paymentTerm", "Payment Term", "number")}
+            {renderInput("website", "Website", "url")}
+            {renderInput("email", "Customer Email", "email")}
+            {renderInput("phoneNumber", "Phone Number", "tel")}
+            <button type="submit">Create Customer</button>
+          </form>
+        </div>
+      
+      </ListItemStyled>
+      {/* <code>{JSON.stringify(formData)}</code> */}
     </div>
   )
 }
