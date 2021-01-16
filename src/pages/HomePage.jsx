@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import CustomerListItem from '../components/CustomerListItem';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components'
+import CustomerList from '../components/CustomerList';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import ButtonCreate from '../components/ButtonCreate';
-import ListContainerStyled from '../components/ListContainerStyled';
 
-
-   
-
+const Container = styled.div`
+  display: flex;
+  padding-bottom: 3rem;
+`
 
 export default function HomePage() {
-
   const [customerList, setCustomerList] = useState([]);
-  const history = useHistory();
-
 
   useEffect(() => {
     getCustomerList()
@@ -35,21 +33,14 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <ListContainerStyled>
-        <section>
-          <Link to="/customers/create">
-            <ButtonCreate />
-          </Link>
-        </section>
 
-        <div>
-          <h1>Customer List</h1>
-          {customerList.map((item, index) => {
-            return <CustomerListItem key={item.id} customerData={item} />
-          })}
-        </div>
-      </ListContainerStyled>
+      <Container>      
+        <Sidebar>
+          <ButtonCreate />
+        </Sidebar>
 
+        <CustomerList items={customerList} />
+      </Container>
     </div>
   )
 }

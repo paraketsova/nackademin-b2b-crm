@@ -1,10 +1,11 @@
 import React from 'react'
-import ButtonStyled from './ButtonStyled'
+import { Link }  from 'react-router-dom';
+import Button from './Button'
 
 export default function ButtonHome() {
   return (
-    <div>
-      <ButtonStyled>Back</ButtonStyled>
-    </div>
+    <Link to="/">
+      <Button>HomePage</Button>
+    </Link>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
-import ButtonStyled from './ButtonStyled'
+import Button from './Button'
+import { Link } from 'react-router-dom';
 
 export default function ButtonCreate() {
   return (
-    <div>
-      <ButtonStyled>Create Customer</ButtonStyled>
-    </div>
+    <Link to="/customers/create">
+      <Button>Create Customer</Button>
+    </Link>
   )
 }

@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import CustomerDetails from '../components/CustomerDetails';
 import ButtonHome from '../components/ButtonHome';
-import ButtonCreate from '../components/ButtonCreate';
+import styled from 'styled-components';
+import colors from '../Colors';
+
+const Container = styled.div`
+  display: flex;
+  padding-bottom: 3rem;
+`
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
@@ -23,16 +31,19 @@ export default function CustomerDetailPage(props) {
   }
 
   function deleteCustomer() {
-    const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
-    const token = localStorage.getItem("WEBB20");
-    fetch(url, {
-      method: "DELETE",
-      headers:{
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      }
-    })
-    .then(() => history.push('/'))
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm('Are you sure you want to delete this customer?')) {
+      const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
+      const token = localStorage.getItem("WEBB20");
+      fetch(url, {
+        method: "DELETE",
+        headers:{
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+      })
+      .then(() => history.push('/'));
+    }
   }
 
   useEffect( () => {
@@ -44,68 +55,14 @@ export default function CustomerDetailPage(props) {
     
     <div>
       <Header />
-      <div>
-        <Link to="/">
-          <ButtonHome />
-        </Link>
-          
-      </div>
-      {console.log(customerItem)}
-      {customerItem
-      ? (
-          <div>
-            <h2>{customerItem.name}</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Organisatioin Number</td>
-                  <td>{customerItem.organisationNr}</td>
-                </tr>
-                <tr>
-                  <td>VAT Number</td>
-                  <td>{customerItem.vatNr}</td>
-                </tr>
-                <tr>
-                  <td>Reference</td>
-                  <td>{customerItem.reference}</td>
-                </tr>
-                <tr>
-                  <td>Payments Term</td>
-                  <td>{customerItem.paymentsTerm}</td>
-                </tr>
-                <tr>
-                  <td>Website</td>
-                  <td>
-                    <a href={customerItem.website} target="_blank" rel="noreferrer">
-                      {customerItem.website}
-                    </a> 
-                  </td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td>
-                    <a href={`mailto:${customerItem.email}`}>
-                    {customerItem.email}
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Phone Number</td>
-                  <td>{customerItem.phoneNumber}</td>
-                </tr>
-              </tbody>
-            </table>
-            <button onClick={deleteCustomer}>Delete Customer</button>
-            <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
 
-          </div>
-          
-      )
-      :
-      (
-        <span>Laddar data...</span>
-      )
-      }
+      <Container>
+        <Sidebar>
+          <ButtonHome />
+        </Sidebar>
+
+        <CustomerDetails data={customerItem} deleteCustomer={deleteCustomer}/>
+      </Container>
     </div>
   )
 }

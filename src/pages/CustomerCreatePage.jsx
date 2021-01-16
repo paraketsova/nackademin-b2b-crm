@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import ButtonHome from '../components/ButtonHome';
-import ListItemStyled from '../components/ListItemStyled';
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState();
@@ -50,7 +49,7 @@ export default function CustomerCreatePage() {
   return (
     <div>
       <Header />
-      <ListItemStyled>
+      {/* <ListItemStyled>
         <section>
           <Link to="/">
             <ButtonHome />
@@ -71,7 +70,7 @@ export default function CustomerCreatePage() {
           </form>
         </div>
       
-      </ListItemStyled>
+      </ListItemStyled> */}
       {/* <code>{JSON.stringify(formData)}</code> */}
     </div>
   )
