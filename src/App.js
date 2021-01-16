@@ -31,11 +31,8 @@ function App() {
           path="/customers/:id" 
           component={CustomerDetailPage} 
         />
-
       </Switch>
-      
-      <hr />
-      
+
     </div>
   );
 }

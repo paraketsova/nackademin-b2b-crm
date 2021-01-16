@@ -10,9 +10,8 @@ export default function UserDataDetail() {
 
   return (
     <UserDataDetailStyled>
-      
       <div>
-      👤 {userFirstName} {userLastName} 
+     👤  {userFirstName} {userLastName} 
       <p> {userEmail} </p>
       <LogOut />
     </div>
