@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar';
 import ButtonHome from '../components/ButtonHome';
 import Button from '../components/Button';
 import styled from 'styled-components';
+import { checkIfValid } from '../utils';
 
 const Container = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ const Container = styled.div`
 export default function CustomerEditPage(props) {
   const customerId = props.match.params.id;
   const [formData, setFormData] = useState({});
+  const [error, setError] = useState();
   const history = useHistory();
 
   function getCustomerItem() {
@@ -46,10 +48,11 @@ export default function CustomerEditPage(props) {
   }, [])
 
   function handleOnChange(e) {
-    const name = e.target.name
-    const value = e.target.value
-    const newObj = {...formData, [name]: value}
-    setFormData(newObj)
+    const name = e.target.name;
+    const value = e.target.value;
+    const newObj = { ...formData, [name]: value };
+    setFormData(newObj);
+    setError(null);
   }
 
   function renderInput(name, label, type) {
@@ -71,6 +74,13 @@ export default function CustomerEditPage(props) {
 
   function handleOnSubmit(e) {
     e.preventDefault()
+
+    const error = checkIfValid(formData);
+    if (error) {
+      setError(error);
+      return;
+    }
+
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
     const token = localStorage.getItem("WEBB20")
     fetch(url, {
@@ -94,28 +104,36 @@ export default function CustomerEditPage(props) {
           <ButtonHome />
         </Sidebar>
 
-        <div>
-          <h1>Edit Customer</h1>
+        {formData.id ? (
+          <div>
+            <h1>Edit Customer</h1>
 
-          <form onSubmit={handleOnSubmit}>
-            <table>
-              <tbody>
-                {renderInput("name", "Customer Name")}
-                {renderInput("organisationNr", "Organisation Number")}
-                {renderInput("vatNr", "Vat Number")}
-                {renderInput("reference", "Reference")}
-                {renderInput("paymentTerm", "Payment Term", "number")}
-                {renderInput("website", "Website", "url")}
-                {renderInput("email", "Customer Email", "email")}
-                {renderInput("phoneNumber", "Phone Number", "tel")}
-              </tbody>
-            </table>
-            
-            <Button small type="submit">Update Customer</Button>
+            <form onSubmit={handleOnSubmit}>
+              <table>
+                <tbody>
+                  {renderInput("name", "Customer Name")}
+                  {renderInput("organisationNr", "Organisation Number")}
+                  {renderInput("vatNr", "Vat Number")}
+                  {renderInput("reference", "Reference")}
+                  {renderInput("paymentTerm", "Payment Term", "number")}
+                  {renderInput("website", "Website", "url")}
+                  {renderInput("email", "Customer Email", "email")}
+                  {renderInput("phoneNumber", "Phone Number", "tel")}
+                </tbody>
+              </table>
 
-            <Link to={`/customers/${customerId}`}>Cancel</Link>
-          </form>
-        </div>
+              {error && (
+                <div style={{ color: 'red', padding: '1rem', backgroundColor: '#fee', marginBottom: '1rem' }}>{error}</div>
+              )}        
+              
+              <Button small type="submit">Update Customer</Button>
+
+              <Link to={`/customers/${customerId}`}>Cancel</Link>
+            </form>
+          </div>
+        ) : (
+          <p>Laddar data...</p>
+        )}
       </Container>
     </div>
   )

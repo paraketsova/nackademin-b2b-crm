@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar';
 import ButtonHome from '../components/ButtonHome';
 import Button from '../components/Button';
 import styled from 'styled-components';
+import { checkIfValid } from '../utils';
 
 const Container = styled.div`
   display: flex;
@@ -23,14 +24,16 @@ const Container = styled.div`
 `
 
 export default function CustomerCreatePage() {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({});
+  const [error, setError] = useState();
   const history = useHistory();
 
   function handleOnChange(e) {
-    const name = e.target.name
-    const value = e.target.value
-    const newObj = {...formData, [name]: value}
-    setFormData(newObj)
+    const name = e.target.name;
+    const value = e.target.value;
+    const newObj = { ...formData, [name]: value };
+    setFormData(newObj);
+    setError(null);
   }
 
   function renderInput(name, label, type) {
@@ -51,6 +54,13 @@ export default function CustomerCreatePage() {
 
   function handleOnSubmit(e) {
     e.preventDefault()
+
+    const error = checkIfValid(formData);
+    if (error) {
+      setError(error);
+      return;
+    }
+
     const url = "https://frebi.willandskill.eu/api/v1/customers/";
     const token = localStorage.getItem("WEBB20");
 
@@ -93,6 +103,10 @@ export default function CustomerCreatePage() {
                 {renderInput("phoneNumber", "Phone Number", "tel")}
               </tbody>
             </table>
+
+            {error && (
+              <div style={{ color: 'red', padding: '1rem', backgroundColor: '#fee', marginBottom: '1rem' }}>{error}</div>
+            )}
             
             <Button small type="submit">Create Customer</Button>
           </form>
