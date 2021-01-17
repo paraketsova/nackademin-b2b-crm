@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import ButtonHome from '../components/ButtonHome';
-import ButtonCreate from '../components/ButtonCreate';
+import Button from '../components/Button';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+  padding-bottom: 3rem;
 
-export default function CustomerUpdatePage(props) {
+  table {
+    width: 40rem;
+    margin-bottom: 1.5rem;
+    border-spacing: 0;
 
+    th, td {
+      text-align: left;
+      padding: 0.3rem 0;
+    }
+  }
+`
+
+export default function CustomerEditPage(props) {
   const customerId = props.match.params.id;
   const [formData, setFormData] = useState({});
   const history = useHistory();
@@ -38,15 +54,18 @@ export default function CustomerUpdatePage(props) {
 
   function renderInput(name, label, type) {
     return (
-      <div>
-      <label>{label}</label>
-      <input 
-        type={type || "text"} 
-        name={name}
-        value={formData[name] || ""}
-        onChange={handleOnChange}
-      />
-      </div>
+      <tr>
+        <th>{label}</th>
+        <td>
+          <input 
+            type={type || "text"} 
+            name={name}
+            value={formData[name] || ""}
+            size={50}
+            onChange={handleOnChange}
+          />
+        </td>
+      </tr>
     )
   }
 
@@ -69,23 +88,31 @@ export default function CustomerUpdatePage(props) {
   return (
     <div>
       <Header />
-      <div>
-        <Link to="/">
+
+      <Container>
+        <Sidebar>
           <ButtonHome />
-        </Link>
-      </div>
-      <h2>Update Customer</h2>
-      <form onSubmit={handleOnSubmit}>
-        {renderInput("name", "Customer Name")}
-        {renderInput("organisationNr", "Organisation Number")}
-        {renderInput("vatNr", "Vat Number")}
-        {renderInput("reference", "Reference")}
-        {renderInput("paymentTerm", "Payment Term", "number")}
-        {renderInput("website", "Website", "url")}
-        {renderInput("email", "Customer Email", "email")}
-        {renderInput("phoneNumber", "Phone Number", "tel")}
-        <button type="submit">Update Customer</button>
-      </form>
+        </Sidebar>
+
+        <div>
+          <h1>Edit Customer</h1>
+
+          <form onSubmit={handleOnSubmit}>
+            <table>
+              {renderInput("name", "Customer Name")}
+              {renderInput("organisationNr", "Organisation Number")}
+              {renderInput("vatNr", "Vat Number")}
+              {renderInput("reference", "Reference")}
+              {renderInput("paymentTerm", "Payment Term", "number")}
+              {renderInput("website", "Website", "url")}
+              {renderInput("email", "Customer Email", "email")}
+              {renderInput("phoneNumber", "Phone Number", "tel")}
+            </table>
+            
+            <Button small type="submit">Update Customer</Button>
+          </form>
+        </div>
+      </Container>
     </div>
   )
 }

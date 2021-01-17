@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerCreatePage from './pages/CustomerCreatePage';
-import CustomerUpdatePage from './pages/CustomerUpdatePage';
+import CustomerEditPage from './pages/CustomerEditPage';
 import ConditionalHomePage from './components/ConditionalHomePage';
 
 
@@ -23,7 +23,7 @@ function App() {
 
         <Route 
           path="/customers/:id/edit"
-          component={CustomerUpdatePage} 
+          component={CustomerEditPage} 
           />
 
         <Route

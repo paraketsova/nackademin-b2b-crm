@@ -5,7 +5,7 @@ const Sidebar = styled.section`
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1.2rem;
 `
 
 export default Sidebar;

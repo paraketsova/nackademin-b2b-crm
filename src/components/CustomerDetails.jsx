@@ -1,55 +1,46 @@
 import React from 'react';
-import { Link }  from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonEdit from './ButtonEdit';
 import ButtonDelete from './ButtonDelete';
 
 const Container = styled.div`
-  form, div {
-    display: flex;
-    flex-direction: column;
+  table {
     width: 30rem;
-    align-content: space-around;
-    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    border-spacing: 0;
 
-    div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 2.0rem;
-
-      input {
-        width: 15rem;
-        height: 1.5rem;
-      }
+    th, td {
+      text-align: left;
+      padding: 0.3rem 0;
     }
   }
 `
 
 export default function CustomerDetails({ data, deleteCustomer }) {
   return (data ? (
-    <div>
-      <h2>{data.name}</h2>
+    <Container>
+      <h1>{data.name}</h1>
+      
       <table>
         <tbody>
           <tr>
-            <td>Organisatioin Number</td>
+            <th>Organisatioin Number</th>
             <td>{data.organisationNr}</td>
           </tr>
           <tr>
-            <td>VAT Number</td>
+            <th>VAT Number</th>
             <td>{data.vatNr}</td>
           </tr>
           <tr>
-            <td>Reference</td>
+            <th>Reference</th>
             <td>{data.reference}</td>
           </tr>
           <tr>
-            <td>Payments Term</td>
+            <th>Payments Term</th>
             <td>{data.paymentsTerm}</td>
           </tr>
           <tr>
-            <td>Website</td>
+            <th>Website</th>
             <td>
               <a href={data.website} target="_blank" rel="noreferrer">
                 {data.website}
@@ -57,7 +48,7 @@ export default function CustomerDetails({ data, deleteCustomer }) {
             </td>
           </tr>
           <tr>
-            <td>Email</td>
+            <th>Email</th>
             <td>
               <a href={`mailto:${data.email}`}>
               {data.email}
@@ -65,16 +56,17 @@ export default function CustomerDetails({ data, deleteCustomer }) {
             </td>
           </tr>
           <tr>
-            <td>Phone Number</td>
+            <th>Phone Number</th>
             <td>{data.phoneNumber}</td>
           </tr>
         </tbody>
       </table>
-      <ButtonEdit id={data.id}>Edit Customer</ButtonEdit>
-      <ButtonDelete deleteCustomer={deleteCustomer} />
 
-    </div>
+      <ButtonEdit id={data.id}>Edit Customer</ButtonEdit>
+      
+      <ButtonDelete deleteCustomer={deleteCustomer} />
+    </Container>
   ) : (
-    <span>Laddar data...</span>
+    <p>Laddar data...</p>
   ))
 }

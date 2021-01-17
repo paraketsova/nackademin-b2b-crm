@@ -70,6 +70,7 @@ const LoginFormStyled = styled.div `
   }
 
   button {
+    cursor: pointer;
     outline: 0;
     font-size: 1em;
     font-weight: bold;

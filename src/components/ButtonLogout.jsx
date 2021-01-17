@@ -1,22 +1,19 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
+import Button from './Button';
 
 export default function LogOut() {
   const history = useHistory();
 
-  function userLogOut() {
+  function userLogout() {
     localStorage.removeItem("WEBB20"); 
     localStorage.removeItem("email"); 
     localStorage.removeItem("firstName"); 
     localStorage.removeItem("lastName"); 
-  history.push('/'); 
+    history.push('/'); 
   }
   
-
   return (
-    <div>
-      <button onClick={userLogOut}>Log Out</button>
-    </div>
+    <Button small onClick={userLogout}>Log Out</Button>
   )
 }

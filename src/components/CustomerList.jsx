@@ -4,7 +4,7 @@ import CustomerListItem from '../components/CustomerListItem';
 import colors from '../Colors';
 
 const Container = styled.div`
-  width: 50vw;    
+  width: 40vw;    
   text-decoration: none;
   align-content: center;
   justify-content: center;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import UserDataDetail from './UserDataDetail';
+import UserProfile from './UserProfile';
 import styled from 'styled-components';
 import colors from '../Colors';
 
@@ -19,7 +19,7 @@ export default function Header() {
     <Container>
       <Logo>B2B<span>customer</span>service</Logo>
       
-      <UserDataDetail />
+      <UserProfile />
     </Container>
   )
 }

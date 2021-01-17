@@ -5,7 +5,7 @@ import Button from './Button'
 export default function ButtonHome() {
   return (
     <Link to="/">
-      <Button>HomePage</Button>
+      <Button>← Back to home</Button>
     </Link>
   )
 }

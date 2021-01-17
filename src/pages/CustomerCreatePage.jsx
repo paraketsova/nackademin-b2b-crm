@@ -1,7 +1,26 @@
 import React, {useState} from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import ButtonHome from '../components/ButtonHome';
+import Button from '../components/Button';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  padding-bottom: 3rem;
+
+  table {
+    width: 40rem;
+    margin-bottom: 1.5rem;
+    border-spacing: 0;
+
+    th, td {
+      text-align: left;
+      padding: 0.3rem 0;
+    }
+  }
+`
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState();
@@ -16,14 +35,17 @@ export default function CustomerCreatePage() {
 
   function renderInput(name, label, type) {
     return (
-      <div>
-      <label>{label}</label>
-      <input 
-        type={type || "text"} 
-        name={name}
-        onChange={handleOnChange}
-      />
-      </div>
+      <tr>
+        <th>{label}</th>
+        <td>
+          <input 
+            type={type || "text"} 
+            name={name}
+            size={50}
+            onChange={handleOnChange}
+          />
+        </td>
+      </tr>
     )
   }
 
@@ -49,28 +71,32 @@ export default function CustomerCreatePage() {
   return (
     <div>
       <Header />
-      {/* <ListItemStyled>
-        <section>
-          <Link to="/">
-            <ButtonHome />
-          </Link>
-        </section>
+
+      <Container>
+        <Sidebar>
+          <ButtonHome />
+        </Sidebar>
+
         <div>
           <h1>Create Customer</h1>
+
           <form onSubmit={handleOnSubmit}>
-            {renderInput("name", "Customer Name")}
-            {renderInput("organisationNr", "Organisation Number")}
-            {renderInput("vatNr", "Vat Number")}
-            {renderInput("reference", "Reference")}
-            {renderInput("paymentTerm", "Payment Term", "number")}
-            {renderInput("website", "Website", "url")}
-            {renderInput("email", "Customer Email", "email")}
-            {renderInput("phoneNumber", "Phone Number", "tel")}
-            <button type="submit">Create Customer</button>
+            <table>
+              {renderInput("name", "Customer Name")}
+              {renderInput("organisationNr", "Organisation Number")}
+              {renderInput("vatNr", "Vat Number")}
+              {renderInput("reference", "Reference")}
+              {renderInput("paymentTerm", "Payment Term", "number")}
+              {renderInput("website", "Website", "url")}
+              {renderInput("email", "Customer Email", "email")}
+              {renderInput("phoneNumber", "Phone Number", "tel")}
+            </table>
+            
+            <Button small type="submit">Create Customer</Button>
           </form>
         </div>
-      
-      </ListItemStyled> */}
+      </Container>
+
       {/* <code>{JSON.stringify(formData)}</code> */}
     </div>
   )

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import CustomerDetails from '../components/CustomerDetails';
 import ButtonHome from '../components/ButtonHome';
 import styled from 'styled-components';
-import colors from '../Colors';
 
 const Container = styled.div`
   display: flex;
@@ -52,7 +51,6 @@ export default function CustomerDetailPage(props) {
   }, [])
 
   return (
-    
     <div>
       <Header />
 
