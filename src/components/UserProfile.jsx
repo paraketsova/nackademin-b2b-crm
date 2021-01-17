@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ButtonLogout from './ButtonLogout';
 import styled from 'styled-components';
 import colors from '../Colors';
+import UserContext from '../UserContext';
 
 const Container = styled.div`
   display: block;
@@ -14,14 +15,12 @@ const Container = styled.div`
 `
 
 export default function UserProfile() {
-  const userFirstName = localStorage.getItem("firstName");
-  const userLastName = localStorage.getItem("lastName");
-  const userEmail = localStorage.getItem("email");
+  const user = useContext(UserContext);
 
   return (
     <Container>
-      👤 {userFirstName} {userLastName} 
-      <p> {userEmail} </p>
+      👤 {user.firstName} {user.lastName} 
+      <p> {user.email} </p>
       <ButtonLogout />
     </Container>
   )

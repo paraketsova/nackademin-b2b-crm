@@ -3,6 +3,7 @@ import Logo from './Logo';
 import UserProfile from './UserProfile';
 import styled from 'styled-components';
 import colors from '../Colors';
+import UserContext from '../UserContext';
 
 const Container = styled.header`
   background: ${colors.earieBlack};
@@ -15,11 +16,19 @@ const Container = styled.header`
 `
 
 export default function Header() {
+  const user = {
+    firstName: localStorage.getItem("firstName"),
+    lastName: localStorage.getItem("lastName"),
+    email: localStorage.getItem("email"),
+  };
+
   return (
-    <Container>
-      <Logo>B2B<span>customer</span>service</Logo>
-      
-      <UserProfile />
-    </Container>
+    <UserContext.Provider value={user}>
+      <Container>
+        <Logo>B2B<span>customer</span>service</Logo>
+        
+        <UserProfile />
+      </Container>
+    </UserContext.Provider>
   )
 }
