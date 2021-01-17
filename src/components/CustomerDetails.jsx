@@ -17,7 +17,7 @@ const Container = styled.div`
 `
 
 export default function CustomerDetails({ data, deleteCustomer }) {
-  return (data ? (
+ return (data ? (
     <Container>
       <h1>{data.name}</h1>
       
@@ -36,8 +36,8 @@ export default function CustomerDetails({ data, deleteCustomer }) {
             <td>{data.reference}</td>
           </tr>
           <tr>
-            <th>Payments Term</th>
-            <td>{data.paymentsTerm}</td>
+            <th>Payment Term</th>
+            <td>{data.paymentTerm}</td>
           </tr>
           <tr>
             <th>Website</th>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import ButtonHome from '../components/ButtonHome';
@@ -99,17 +99,21 @@ export default function CustomerEditPage(props) {
 
           <form onSubmit={handleOnSubmit}>
             <table>
-              {renderInput("name", "Customer Name")}
-              {renderInput("organisationNr", "Organisation Number")}
-              {renderInput("vatNr", "Vat Number")}
-              {renderInput("reference", "Reference")}
-              {renderInput("paymentTerm", "Payment Term", "number")}
-              {renderInput("website", "Website", "url")}
-              {renderInput("email", "Customer Email", "email")}
-              {renderInput("phoneNumber", "Phone Number", "tel")}
+              <tbody>
+                {renderInput("name", "Customer Name")}
+                {renderInput("organisationNr", "Organisation Number")}
+                {renderInput("vatNr", "Vat Number")}
+                {renderInput("reference", "Reference")}
+                {renderInput("paymentTerm", "Payment Term", "number")}
+                {renderInput("website", "Website", "url")}
+                {renderInput("email", "Customer Email", "email")}
+                {renderInput("phoneNumber", "Phone Number", "tel")}
+              </tbody>
             </table>
             
             <Button small type="submit">Update Customer</Button>
+
+            <Link to={`/customers/${customerId}`}>Cancel</Link>
           </form>
         </div>
       </Container>

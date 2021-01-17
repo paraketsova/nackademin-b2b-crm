@@ -82,14 +82,16 @@ export default function CustomerCreatePage() {
 
           <form onSubmit={handleOnSubmit}>
             <table>
-              {renderInput("name", "Customer Name")}
-              {renderInput("organisationNr", "Organisation Number")}
-              {renderInput("vatNr", "Vat Number")}
-              {renderInput("reference", "Reference")}
-              {renderInput("paymentTerm", "Payment Term", "number")}
-              {renderInput("website", "Website", "url")}
-              {renderInput("email", "Customer Email", "email")}
-              {renderInput("phoneNumber", "Phone Number", "tel")}
+              <tbody>
+                {renderInput("name", "Customer Name")}
+                {renderInput("organisationNr", "Organisation Number")}
+                {renderInput("vatNr", "Vat Number")}
+                {renderInput("reference", "Reference")}
+                {renderInput("paymentTerm", "Payment Term", "number")}
+                {renderInput("website", "Website", "url")}
+                {renderInput("email", "Customer Email", "email")}
+                {renderInput("phoneNumber", "Phone Number", "tel")}
+              </tbody>
             </table>
             
             <Button small type="submit">Create Customer</Button>
