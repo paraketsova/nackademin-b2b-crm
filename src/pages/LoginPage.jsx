@@ -37,14 +37,14 @@ export default function LoginPage() {
       .then(res => res.json())
       .then(data => {
         if (data.token !== undefined) {
-          localStorage.setItem("WEBB20", data.token);
+          localStorage.setItem("token", data.token);
         }
       });
   }
 
   function getUserData() {
     const url = "https://frebi.willandskill.eu/api/v1/me/";
-    const token = localStorage.getItem("WEBB20");
+    const token = localStorage.getItem("token");
     return fetch(url, {
       headers: {
         "Content-Type": "application/json",

@@ -31,7 +31,7 @@ export default function CustomerEditPage(props) {
 
   function getCustomerItem() {
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
-    const token = localStorage.getItem("WEBB20");
+    const token = localStorage.getItem("token");
     fetch(url, {
       headers:{
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export default function CustomerEditPage(props) {
     }
 
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
-    const token = localStorage.getItem("WEBB20")
+    const token = localStorage.getItem("token")
     fetch(url, {
       method: "PUT",
       body: JSON.stringify(formData),

@@ -6,7 +6,7 @@ export default function LogOut() {
   const history = useHistory();
 
   function userLogout() {
-    localStorage.removeItem("WEBB20"); 
+    localStorage.removeItem("token"); 
     localStorage.removeItem("email"); 
     localStorage.removeItem("firstName"); 
     localStorage.removeItem("lastName"); 

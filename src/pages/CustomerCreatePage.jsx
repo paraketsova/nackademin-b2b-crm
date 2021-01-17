@@ -63,7 +63,7 @@ export default function CustomerCreatePage() {
     }
 
     const url = "https://frebi.willandskill.eu/api/v1/customers/";
-    const token = localStorage.getItem("WEBB20");
+    const token = localStorage.getItem("token");
 
     fetch(url, {
       method: "POST",

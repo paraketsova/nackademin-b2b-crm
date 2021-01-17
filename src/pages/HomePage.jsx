@@ -19,7 +19,7 @@ export default function HomePage() {
 
   function getCustomerList() {
     const url = "https://frebi.willandskill.eu/api/v1/customers";
-    const token = localStorage.getItem("WEBB20");
+    const token = localStorage.getItem("token");
     fetch(url, {
       headers:{
         "Content-Type": "application/json",

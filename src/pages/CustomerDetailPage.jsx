@@ -18,7 +18,7 @@ export default function CustomerDetailPage(props) {
 
   function getCustomerItem() {
     const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
-    const token = localStorage.getItem("WEBB20");
+    const token = localStorage.getItem("token");
     fetch(url, {
       headers:{
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function CustomerDetailPage(props) {
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to delete this customer?')) {
       const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`;
-      const token = localStorage.getItem("WEBB20");
+      const token = localStorage.getItem("token");
       fetch(url, {
         method: "DELETE",
         headers:{
