@@ -72,10 +72,13 @@ export default function CustomerCreatePage() {
         "Authorization": `Bearer ${token}`
       }
     })
-    .then( res => res.json())
-    .then( data => {
-      history.push(`/`)
-    })
+    .then(res => { 
+      if (!res.ok) {
+        res.json().then(data => setError('Server error: ' + data.detail));
+      } else {
+        res.json().then(data => history.push(`/`));
+      }
+    });
   }
 
   return (
