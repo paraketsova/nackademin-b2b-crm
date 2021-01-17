@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
@@ -6,6 +6,7 @@ import ButtonHome from '../components/ButtonHome';
 import Button from '../components/Button';
 import styled from 'styled-components';
 import { checkIfValid } from '../utils';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Container = styled.div`
   display: flex;
@@ -108,7 +109,7 @@ export default function CustomerCreatePage() {
             </table>
 
             {error && (
-              <div style={{ color: 'red', padding: '1rem', backgroundColor: '#fee', marginBottom: '1rem' }}>{error}</div>
+              <ErrorMessage>{error}</ErrorMessage>
             )}
             
             <Button small type="submit">Create Customer</Button>
