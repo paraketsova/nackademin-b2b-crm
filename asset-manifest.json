@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nackademin-b2b-crm/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/nackademin-b2b-crm/static/js/main.77ab55c3.chunk.js",
+    "main.js.map": "/nackademin-b2b-crm/static/js/main.77ab55c3.chunk.js.map",
+    "runtime-main.js": "/nackademin-b2b-crm/static/js/runtime-main.a911a916.js",
+    "runtime-main.js.map": "/nackademin-b2b-crm/static/js/runtime-main.a911a916.js.map",
+    "static/js/2.2e952216.chunk.js": "/nackademin-b2b-crm/static/js/2.2e952216.chunk.js",
+    "static/js/2.2e952216.chunk.js.map": "/nackademin-b2b-crm/static/js/2.2e952216.chunk.js.map",
+    "static/js/3.0054e553.chunk.js": "/nackademin-b2b-crm/static/js/3.0054e553.chunk.js",
+    "static/js/3.0054e553.chunk.js.map": "/nackademin-b2b-crm/static/js/3.0054e553.chunk.js.map",
+    "index.html": "/nackademin-b2b-crm/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/nackademin-b2b-crm/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.2e952216.chunk.js.LICENSE.txt": "/nackademin-b2b-crm/static/js/2.2e952216.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a911a916.js",
+    "static/js/2.2e952216.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.77ab55c3.chunk.js"
+  ]
+}
