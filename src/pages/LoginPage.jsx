@@ -36,7 +36,9 @@ export default function LoginPage() {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("WEBB20", data.token);
+        if (data.token !== undefined) {
+          localStorage.setItem("WEBB20", data.token);
+        }
       });
   }
 
